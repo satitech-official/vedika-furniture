@@ -5,6 +5,18 @@
 **Client demo:** https://satitech-official.github.io/vedika-furniture/  
 **Note:** The link works once GitHub Pages is enabled for the repository.
 
+### Multi-page demo restored (November 19, 2026)
+
+The GitHub Pages showcase is now **multi-page**, with separate HTML routes rather than a single-page substitute:
+
+- [Home](https://satitech-official.github.io/vedika-furniture/)
+- [All collections](https://satitech-official.github.io/vedika-furniture/collections.html)
+- [Living](https://satitech-official.github.io/vedika-furniture/living.html), [Bedroom](https://satitech-official.github.io/vedika-furniture/bedroom.html), [Dining](https://satitech-official.github.io/vedika-furniture/dining.html), [Custom](https://satitech-official.github.io/vedika-furniture/custom.html)
+- [Product details](https://satitech-official.github.io/vedika-furniture/product.html), [Wishlist](https://satitech-official.github.io/vedika-furniture/wishlist.html), [Cart](https://satitech-official.github.io/vedika-furniture/cart.html), [Checkout enquiry](https://satitech-official.github.io/vedika-furniture/checkout.html)
+- [Room Visualizer](https://satitech-official.github.io/vedika-furniture/room-visualizer.html), [About](https://satitech-official.github.io/vedika-furniture/about.html), [Contact](https://satitech-official.github.io/vedika-furniture/contact.html), [Track](https://satitech-official.github.io/vedika-furniture/track.html)
+
+These links require GitHub Pages publishing to be enabled under repository settings. The front-end showcase supports browser-local wishlist/cart, catalogue filtering and WhatsApp enquiry. Actual AI, payment processing, and delivery tracking require the Next.js production backend on the `main` branch. This demo must not be represented as an operational ecommerce store.
+
 ### Publish the GitHub-only showcase
 
 1. Open **Repository → Settings → Pages**.
