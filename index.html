@@ -13,4 +13,20 @@
 </main><footer class="footer"><div class="wrap footer-grid"><div><img src="public/vedika-original-logo.jpg" alt="Vedika Furniture" class="footer-logo"><p>Beautifully considered living.<br>Betul, Madhya Pradesh.</p></div><div><strong>Discover</strong><a href="#collections">Collections</a><a href="#products">Furniture pieces</a><a href="#studio">Room visualizer</a></div><div><strong>Connect</strong><a href="https://www.instagram.com/vedika_furniture_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://wa.me/919301554348" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#home">Back to top ↑</a></div><div><strong>Important</strong><p>Interactive sample showcase. Not a live store. No real payments or orders are accepted here.</p></div></div><div class="wrap footer-bottom">© Vedika Furniture · Demo preview only <span>Production site planned separately</span></div></footer>
 <button id="chatToggle" class="chat-toggle" aria-expanded="false" aria-controls="chatPanel">✧ &nbsp; Ask Vedika</button><div class="chat-panel hidden" id="chatPanel" role="dialog" aria-label="Vedika shopping guide"><div class="chat-head"><strong>✦ Vedika Shopping Guide</strong><button id="chatClose" aria-label="Close shopping guide">×</button></div><div id="chatMessages" class="chat-messages"><p class="bot">Welcome! Tell me which room you are decorating. I can suggest inspiration pieces and help you contact the showroom. This is a guided demo, not live AI.</p></div><div class="quick"><button data-q="living">Living ideas</button><button data-q="bedroom">Bedroom</button><button data-q="dining">Dining</button><button data-q="delivery">Delivery</button></div><form id="chatForm"><input id="chatInput" placeholder="Ask about furniture…" aria-label="Message the shopping guide" required><button type="submit" aria-label="Send">➤</button></form></div>
 <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-backdrop" id="modalBackdrop"></div><div class="modal-box"><button class="close" id="modalClose" aria-label="Close dialog">×</button><div id="modalBody"></div></div></div>
+<script>
+/* Remove referral tracking parameters from the visible address bar. */
+(function () {
+  try {
+    var url = new URL(window.location.href);
+    var changed = false;
+    for (var key of Array.from(url.searchParams.keys())) {
+      if (key.toLowerCase().startsWith('utm_') || key.toLowerCase() === 'ref' || key.toLowerCase() === 'source') {
+        url.searchParams.delete(key);
+        changed = true;
+      }
+    }
+    if (changed) window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+  } catch (e) {}
+})();
+</script>
 <script src="showcase.js" defer></script></body></html>
