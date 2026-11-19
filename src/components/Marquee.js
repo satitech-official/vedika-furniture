@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Marquee({variant='light'}){const words=['HANDCRAFTED FEEL','TIMELESS INTERIORS','YOUR HOME, YOUR STORY','CURATED FOR COMFORT','BEAUTIFUL EVERYDAY LIVING'];return <div className={'motion-marquee '+variant} aria-label={words.join(' · ')}><div className="marquee-track">{[0,1,2,3].map(n=><div className="marquee-set" key={n} aria-hidden={n!==0}>{words.map(w=><span key={w}>{w}<b>✳</b></span>)}</div>)}</div></div>}

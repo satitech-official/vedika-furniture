@@ -1,0 +1,1 @@
+import {products} from '../lib/data';export default function sitemap(){const base=process.env.NEXT_PUBLIC_SITE_URL||'https://example.com';return ['','/about','/collections','/contact','/wishlist','/enquiry','/privacy','/terms',...products.map(p=>'/product/'+p.id)].map(route=>({url:base+route,lastModified:new Date()}))}

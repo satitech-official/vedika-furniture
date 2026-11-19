@@ -1,0 +1,10 @@
+import {parseRoom,roomGuard} from '../../../../lib/room-server';
+export const runtime='nodejs';
+export async function POST(request){const guard=roomGuard(request);if(guard)return guard;
+ if(!process.env.OPENAI_API_KEY)return Response.json({error:'AI room analysis is not enabled yet. The site owner must configure OPENAI_API_KEY. You can still explore the interactive 3D example.'},{status:503});
+ try{const {file,type,style,finish,budget,dimensions}=await parseRoom(request);
+ const b64=Buffer.from(await file.arrayBuffer()).toString('base64');
+ const response=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'authorization':'Bearer '+process.env.OPENAI_API_KEY,'content-type':'application/json'},body:JSON.stringify({model:process.env.VEDIKA_VISION_MODEL||'gpt-4.1-mini',max_tokens:600,response_format:{type:'json_object'},messages:[{role:'system',content:'You are an interior furniture adviser. Return valid JSON only: {"summary":"short room analysis", "tips":["3 to 6 actionable tips"]}. Never invent measurements or claim products are in stock, sold by Vedika, or physically fit without dimensions. Clearly say when a single photo cannot establish dimensions. Avoid faces or personal data.'},{role:'user',content:[{type:'text',text:`Review this ${type} photo. Desired style: ${style}; finish: ${finish}; budget: ${budget}; measured dimensions: ${dimensions}. Advise on furniture style, layout, walking clearance and realistic cautions.`},{type:'image_url',image_url:{url:`data:${file.type};base64,${b64}`,detail:'low'}}]}]})});
+ const json=await response.json();if(!response.ok)throw Error(json.error?.message||'AI analysis could not be completed.');
+ const result=JSON.parse(json.choices?.[0]?.message?.content||'{}');if(!result.summary||!Array.isArray(result.tips))throw Error('AI analysis response was incomplete.');return Response.json({summary:String(result.summary).slice(0,1600),tips:result.tips.slice(0,7).map(x=>String(x).slice(0,300))});
+ }catch(e){return Response.json({error:e.message||'Room analysis unavailable.'},{status:422})}}

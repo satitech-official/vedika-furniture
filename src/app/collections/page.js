@@ -1,0 +1,1 @@
+import {Suspense} from 'react';import Collections from './view';export const metadata={title:'Furniture Collections'};export default function Page(){return <Suspense fallback={<div className="wrap section">Loading collections…</div>}><Collections/></Suspense>}

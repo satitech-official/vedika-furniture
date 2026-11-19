@@ -1,0 +1,3 @@
+export function verifiedWhatsappNumber(){const raw=process.env.NEXT_PUBLIC_VEDIKA_WHATSAPP_NUMBER||'';const n=raw.replace(/\D/g,'');return /^\d{10,15}$/.test(n)?n:null;}
+export function whatsappUrl(message){const number=verifiedWhatsappNumber();return number?`https://wa.me/${number}?text=${encodeURIComponent(message)}`:null;}
+export function productMessage(items,notes=''){const lines=items.map(i=>`• ${i.name}${i.qty?` × ${i.qty}`:''} — price & availability on request`);return ['Hello Vedika Furniture, I would like to enquire about:',...lines,notes&&`My requirements: ${notes}`,'Please share availability, final price and delivery options.'].filter(Boolean).join('\n');}

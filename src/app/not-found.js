@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <div className="wrap inner-page empty-state"><h1>Page not found.</h1><p>We couldn't find that page.</p><Link href="/" className="btn btn-dark">Return home</Link></div>}
