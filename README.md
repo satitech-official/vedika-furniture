@@ -1,3 +1,23 @@
+# Vedika Furniture
+
+[![GitHub Pages Showcase](https://img.shields.io/badge/Showcase-GitHub%20Pages-6B4028?style=for-the-badge)](https://satitech-official.github.io/vedika-furniture/)
+
+**Client demo:** https://satitech-official.github.io/vedika-furniture/  
+**Note:** The link works once GitHub Pages is enabled for the repository.
+
+### Publish the GitHub-only showcase
+
+1. Open **Repository → Settings → Pages**.
+2. Under **Build and deployment**, set **Source: Deploy from a branch**.
+3. Choose **Branch: `gh-pages`** and **Folder: `/ (root)`**, then click **Save**.
+4. After GitHub Pages finishes publishing, open the showcase link above.
+
+The `gh-pages` branch contains a standalone responsive HTML/CSS/JS interactive client demo. The production Next.js source remains on `main` and is **not** hosted by GitHub Pages.
+
+The showcase includes product browsing, filters/search, local wishlist and demo cart, WhatsApp enquiries, a room-photo **local preview**, and a rule-based shopping guide. It does **not** provide real AI generation, accurate 3D reconstruction, payments, real orders, or server-side delivery tracking. No customer photo is uploaded to a server in this demo. Product examples and photos are illustrative, not verified Vedika inventory.
+
+---
+
 ## WhatsApp configured
 
 The site is configured with the owner-provided number **+91 9301554348** (international digits `919301554348`). Click-to-chat leads to `https://wa.me/919301554348` and the site pre-fills enquiry text. The customer must tap **Send** inside WhatsApp; this is not an automated WhatsApp Business API bot. The number must be active on WhatsApp to work. The setting is in `.env.example` and `.env.local`; on Vercel, set `NEXT_PUBLIC_VEDIKA_WHATSAPP_NUMBER=919301554348` and redeploy.
